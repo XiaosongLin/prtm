@@ -1,10 +1,9 @@
 logger = require '../logger'
-#Exchanger = require './exchange'
-#exchanger = new Exchanger
+Prt = require '../models/prt'
+prt = new Prt
 
 class Router
   constructor: (@app, @passport)->
-    @hello = 'world'
   # express router
   express: ->
     @app.get "/", (req, res) ->
@@ -23,7 +22,8 @@ class Router
     #   res.redirect '/'
 
     @app.get '/prt', (req,res) ->
-#      exchanger.getEmails(req, res)
+      Prt.find {}, (err, prts)->
+        res.json prts
 
   route: ->
     @express()

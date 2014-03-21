@@ -7,7 +7,7 @@ logger = require './logger'
 
 class Config
   constructor: (@app, @express, @passport)->
-    @dbUrl = 'mongodb://localhost/passport'
+    @dbUrl = 'mongodb://localhost/feedback'
   init: ->
     mongoose.connect @dbUrl
     # MongoStore = require('connect-mongo')(@express)
